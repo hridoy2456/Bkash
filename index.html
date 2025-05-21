@@ -312,11 +312,11 @@
   width: 118%;  
   margin-left:-30px ;
   height: 50px;    
-  background: #888;    
+  background: #fff;    
   display: flex;    
   justify-content: space-around;    
   align-items: center;    
-  border-top: 1px solid #fff;    
+  border-top: 2px solid #999;    
   z-index: 999;    
 }    
   
@@ -331,7 +331,7 @@
 .diamond {    
   width: 14px;    
   height: 14px;    
-  background: #fff;    
+  background: #777;    
   transform: rotate(0deg);    
   border-radius: 2px;    
 }    
@@ -340,7 +340,7 @@
   width: 15px;    
   height: 15px;    
   border-radius: 50%;    
-  border: 2px solid #fff;    
+  border: 2px solid #777;    
   position: relative;    
   display: flex;    
   align-items: center;    
@@ -350,7 +350,7 @@
 .circle-dot {    
   width: 12px;    
   height: 12px;    
-  background: #fff;    
+  background: #777;    
   border-radius: 50%;    
 }    
   
@@ -359,7 +359,7 @@
   height: 0;    
   border-left: 8px solid transparent;    
   border-right: 8px solid transparent;    
-  border-bottom: 12px solid #fff; /* সাদা ত্রিভুজ */    
+  border-bottom: 12px solid #777; /* সাদা ত্রিভুজ */    
   transform: rotate(-90deg); /* বাঁ দিকে নির্দেশ করে */    
 }  
   
@@ -367,12 +367,12 @@
 </head>    
 <body>    
   <div id="inputForm" style="max-width:400px; margin:20px auto; padding:20px; border:1px solid #ccc; border-radius:10px;">    
-  <h3>সেন্ড মানি তথ্য দিন</h3>    
+  <h3>সেন্ড মানি তথ্য দিন</h3>  <h2>Ⓓᴇᴠᴏʟᴇᴘᴍᴇɴᴛ ʜʀɪᴅÕʏ</h2  
   <label>নাম্বার:</label><br/>    
-  <input type="text" id="inputNumber" placeholder="019xxxxxxxx" style="width:100%; padding:8px; margin-bottom:10px;"><br/>    
+  <input type="text" id="inputNumber" placeholder="019xxxxxxxx" style="width:100%; padding:20px; margin-bottom:30px;"><br/>    
   <label>সর্বমোট টাকা:</label><br/>    
-  <input type="text" id="inputAmount" placeholder="৳" style="width:100%; padding:8px; margin-bottom:10px;"><br/>    
-  <button onclick="submitForm()" style="padding:10px 20px; background-color:#e60073; color:white; border:none; border-radius:5px; cursor:pointer;">সাবমিট</button>    
+  <input type="text" id="inputAmount" placeholder="৳" style="width:100%; padding:20px; margin-bottom:30px;"><br/>    
+  <button onclick="submitForm()" style="padding:20px 30px; background-color:#e60073; color:white; border:none; border-radius:5px; cursor:pointer;">সাবমিট</button>    
 </div>    
 <div class="screen" id="transactionScreen" style="display:none;">    <div class="status-bar">    
     <div class="left" id="timeDisplay">--:--</div>    
