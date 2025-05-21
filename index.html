@@ -17,16 +17,15 @@
   align-items: center;    
   font-size: 13px;    
   width: 100%;    
+
   max-width: 400px;    
   box-sizing: border-box;    
   position: relative;    
   top: 0;    
-  left: 50%;    
-  transform: translateX(-50%);    
   z-index: 999;    
 }    
 .status-bar .left {    
-  font-weight: 500;    
+  font-weight: 400;    
 }    
   
 .status-bar .right {    
@@ -78,7 +77,7 @@
   display: flex;    
   align-items: center;    
   justify-content: center;    
-  font-size: 8px;    
+  font-size: 8.5px;    
   font-weight: bold;    
   color: black;    
 }    
@@ -93,7 +92,16 @@
   z-index: 0;    
   border-radius: 2px 0 0 2px;    
 }    
-  
+  .share-btn {
+  padding: 7px 12px;
+  font-size: 15px;
+  min-width: 100px;
+}
+.hridoy-btn {
+  padding: 7px 12px;
+  font-size: 15px;
+  min-width: 100px;
+}
 .battery-text {    
   position: relative;    
   z-index: 1;    
@@ -109,7 +117,6 @@
   
 .screen {    
   max-width: 400px;    
-  margin: 60px auto 40px;    
   background-color: white;    
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);   
 }  
@@ -123,8 +130,8 @@
   font-size: 18px;    
   margin-bottom: 15px;    
   margin-top: 1px;    
-  text-align: left;    
-  margin-left: -10px;    
+  text-align: left; 
+  margin-top: 40px;  
   margin-right: 50px;    
 }    
   
@@ -138,17 +145,17 @@
 }    
   
 .check-icon {    
-  width: 30px;    
-  height: 30px;    
+  width: 35px;    
+  height: 35px;    
   border: 2px solid green;    
   border-radius: 50%;    
   display: inline-flex;    
   align-items: center;    
   justify-content: center;    
   margin-left: 280px;    
-  margin-top:-90px;    
-  margin-bottom: -90px;    
-  transform: translateY(-18px);    
+  margin-top:-22px;    
+  margin-bottom: -15px;    
+  transform: translateY(-15px);    
 }    
   
 .check-icon svg {    
@@ -275,44 +282,42 @@
 .arrow {  
   font-size: 30px;  
   width: 10px;  
-  font-weight: 800px;  
+  font-weight: 1200px;  
   margin-right:20px;  
 }  
 .hom-hridoy {  
-  font-size: 14px;  
-  margin-right:70px;  
+  font-size: 16px;  
+  margin-right:50px;  
 }  
 .footer-btn {    
  background-color: #e60073;    
   color: white;    
-  margin-top: 22px;    
-  padding: 18px;    
+  margin-top:0px;    
+  padding: 8px;    
   width:100%;  
-  margin:auto -19px;  
+  margin:auto -20px;  
   font-weight: bold;    
-  margin-right:30px;  
+  margin-right:12px;  
   border-radius: 6px 6px 0 0;    
   cursor: pointer;    
   display: flex;    
+  width: 108%;
   align-items: center;    
   justify-content: center;    
-  gap: 100px;    
-    
- }    
-  
-/* ====== এখানে নিচের Navbar এর CSS ====== */    
+  gap: 120px;    
+}
 .nav-bar {    
   position:relative;   
-  transform: translateY(-65px);  
-  bottom: 0;    
-  width: 100%;    
+  bottom: px;    
+  width: 118%;  
+  margin-left:-30px ;
   height: 50px;    
   background: #888;    
   display: flex;    
   justify-content: space-around;    
   align-items: center;    
-  border-top: 1px solid #ccc;    
-  z-index: 1000;    
+  border-top: 1px solid #fff;    
+  z-index: 999;    
 }    
   
 .nav-icon {    
@@ -434,7 +439,7 @@
 <div class="info-item">  
   <strong>নতুন ব্যালেন্স</strong><br>  
   *****   
-  <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 24 24" fill="#e2136e" style="vertical-align: middle; transform: translateY(0px);">  
+  <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 24 24" fill="#e2136e" style="vertical-align: middle;">  
     <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 13c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5 17.5 8.96 17.5 12 15.04 17.5 12 17.5zm0-9a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>  
   </svg>  
 </div>  
@@ -443,13 +448,13 @@
         <div class="info-item">    
           <strong>রেফারেন্স</strong>    
         </div>    
-      </div>  <div class="button-group">  <div class="pink-btn">    
+      </div>  <div class="button-group">  <div class="pink-btn hridoy-btn">    
       <svg viewBox="0 0 24 24">    
         <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm1 14.93V18a1 1 0 01-2 0v-2a1 1 0 011-1h2.07a8.025 8.025 0 01-1.07 1.93zM18 12a6 6 0 11-6-6 6.007 6.007 0 016 6z"/>    
       </svg>    
       অটো পে চালু করুন    
     </div>    
-      <div class="pink-btn">    
+      <div class="pink-btn share-btn">    
       <svg viewBox="0 0 24 24">    
         <path d="M18 16.08a2.91 2.91 0 00-1.95.78l-7.13-4.2a2.91 2.91 0 000-1.35l7.13-4.2a2.991 2.991 0 10-.9-1.45L8.12 9.38a2.99 2.99 0 100 5.24l7.13 4.2A2.99 2.99 0 1018 16.08z"/>    
       </svg>    
@@ -464,28 +469,19 @@
     পয়েন্ট ব্যবহার করতে <u><strong class="rewad-ng">বিকাশ রিওয়ার্ডস</strong></u> চেক করুন!    
   </div>    
   
-  <div class="footer-btn"> <span class="hom-hridoy">  
-   হোম এ ফিরে যাই </span> <span class="arrow">→</span>    
-  </div>    
-  
-</div>  
-  
-  </div>    <!-- নিচের Nav Bar -->    <div class="nav-bar">    
-    <div class="nav-icon">    
-      <div class="diamond"></div>    
-    </div>    
-    <div class="nav-icon">    
-      <div class="circle">    
-        <div class="circle-dot"></div>    
-      </div>    
-    </div>    
-    <div class="nav-icon">    
-      <div class="triangle"></div>    
-    </div>    
-  </div>    
+  <div class="footer-btn">
+  <span class="hom-hridoy">হোম এ ফিরে যান</span>
+  <span class="arrow">→</span>
+</div>
+
+<div class="nav-bar">
+  <div class="nav-icon"><div class="diamond"></div></div>
+  <div class="nav-icon"><div class="circle"><div class="circle-dot"></div></div></div>
+  <div class="nav-icon"><div class="triangle"></div></div>
+</div>    
   <div>    <div style="text-align: center; margin: 20px 0;" class="no-capture">    
   <button id="downloadButton" onclick="downloadAsImage()" style="padding:10px 20px; background-color:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer;">    
-    ফটো আকারে সংরক্ষণ করুন    
+    ★彡[ডাউনলোড করুন]彡★
   </button>    
 </div>    
 
@@ -575,7 +571,7 @@ function submitForm() {
   const amount = parseFloat(document.getElementById("inputAmount").value);    
     
   if (!number || isNaN(amount)) {    
-    alert("সঠিকভাবে নাম্বার এবং পরিমাণ দিন");    
+    alert("[আগে পুরো ফ্রম পূরণ করো পরে সামিট দেও  Đ€VØŁ€ƤΜ€ŇŦ ĦŘƗĐØ¥");    
     return;    
   }    
     
@@ -595,4 +591,4 @@ function submitForm() {
 }    
 </script>   
 </body>    
-                           </html>
+                                             </html>
