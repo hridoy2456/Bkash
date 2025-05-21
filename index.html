@@ -1,620 +1,598 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
+<!DOCTYPE html>  <html lang="bn">    
+<head>    <title>বিকাশ সেন্ড মানি সফল</title>   
+  <style>    
+    body {    
+      margin: 0;    
+      font-family: 'Noto Sans Bengali', sans-serif;   
+      background-color: #fff;    
+      color: #000;    
+      padding-bottom: 60px; /* নিচের navbar জন্য জায়গা */    
+    }   
+    .status-bar {    
+  background-color: #D0D0D0;    
+  color: white;    
+  padding: 2px 6px;    
+  display: flex;    
+  justify-content: space-between;    
+  align-items: center;    
+  font-size: 13px;    
+  width: 100%;    
+  max-width: 400px;    
+  box-sizing: border-box;    
+  position: relative;    
+  top: 0;    
+  left: 50%;    
+  transform: translateX(-50%);    
+  z-index: 999;    
+}    
+.status-bar .left {    
+  font-weight: 500;    
+}    
   
-  <title>বিকাশ সেন্ড মানি সফল</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Noto Sans Bengali', sans-serif;
-      background-color: #fff;
-      color: #000;
-      padding-bottom: 60px; /* নিচের navbar জন্য জায়গা */
-    }
+.status-bar .right {    
+  display: flex;    
+  align-items: center;    
+  gap: 6px;    
+}    
+  
+.net-speed {    
+  font-size: 11px;    
+  color: white;    
+  margin-right: 2px;    
+}    
+  
+.signal {    
+  display: flex;    
+  align-items: flex-end;    
+  gap: 1px;    
+}    
+  
+.signal .bar {    
+  width: 2px;    
+  background-color: white;    
+}    
+  
+.bar1 { height: 4px; }    
+.bar2 { height: 6px; }    
+.bar3 { height: 8px; }    
+.bar4 { height: 10px; }    
+  
+.wifi {    
+  font-size: 16px;    
+  color: white;    
+}    
+  
+.battery-icon {    
+  display: flex;    
+  align-items: center;    
+  gap: 3px;    
+}    
+  
+.battery-body {    
+  width: 26px;    
+  height: 11px;    
+  border: 1px solid #fff;    
+  border-radius: 3px;    
+  position: relative;    
+  background-color: #fff;    
+  display: flex;    
+  align-items: center;    
+  justify-content: center;    
+  font-size: 8px;    
+  font-weight: bold;    
+  color: black;    
+}    
+  
+.battery-fill {    
+  position: absolute;    
+  left: 0;    
+  top: 0;    
+  height: 100%;    
+  width: 75%;    
+  background-color: #f57c00;    
+  z-index: 0;    
+  border-radius: 2px 0 0 2px;    
+}    
+  
+.battery-text {    
+  position: relative;    
+  z-index: 1;    
+  user-select: none;    
+}    
+  
+.battery-cap {    
+  width: 3px;    
+  height: 5px;    
+  background-color: #fff;    
+  border-radius: 1px;    
+}    
+  
+.screen {    
+  max-width: 400px;    
+  margin: 60px auto 40px;    
+  background-color: white;    
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);   
+}  
+  
+.content {    
+  padding: 20px;    
+  text-align: center;    
+}    
+  
+.success-text {    
+  font-size: 18px;    
+  margin-bottom: 15px;    
+  margin-top: 1px;    
+  text-align: left;    
+  margin-left: -10px;    
+  margin-right: 50px;    
+}    
+  
+.success-text span {    
+  color: #e60073;    
+  font-weight: bold;    
+}    
+  
+.success-text b {    
+  color: green;    
+}    
+  
+.check-icon {    
+  width: 30px;    
+  height: 30px;    
+  border: 2px solid green;    
+  border-radius: 50%;    
+  display: inline-flex;    
+  align-items: center;    
+  justify-content: center;    
+  margin-left: 280px;    
+  margin-top:-90px;    
+  margin-bottom: -90px;    
+  transform: translateY(-18px);    
+}    
+  
+.check-icon svg {    
+  width: 25px;    
+  height: 25px;    
+  fill: green;    
+}    
+  
+.user-info {    
+  display: flex;    
+  align-items: center;    
+  margin: 20px 0;    
+  justify-content: space-between;    
+}    
+  
+.user-details {    
+  display: flex;    
+  align-items: center;    
+}    
+  
+.user-circle {    
+  width: 50px;    
+  height: 50px;    
+  background-color: #b0cbe1;    
+  border-radius: 50%;    
+  color: #fff;    
+  display: flex;    
+  align-items: center;    
+  justify-content: center;    
+  font-size: 20px;    
+  margin-right: 10px;    
+}    
+  
+.user-numbers {    
+  text-align: left;    
+  font-weight: bold;    
+  color: #333;    
+}    
+  
+.call-button {    
+  border: 1px solid #e60073;    
+  color: #e60073;    
+  padding: 8px 16px;    
+  border-radius: 12px;    
+  display: flex;    
+  align-items: center;    
+  font-size: 14px;    
+  cursor: pointer;    
+}    
+  
+.call-button svg {    
+  margin-right: 6px;    
+  width: 18px;    
+  height: 18px;    
+  fill: #e60073;    
+}    
+  
+.info-box {    
+  display: flex;    
+  flex-wrap: wrap;    
+  margin-bottom: 20px;    
+  font-size: 15px;    
+}    
+  
+.info-item {    
+  width: 50%;    
+  padding-top: 35px;    
+  text-align: left;    
+}    
+  
+.info-item strong {    
+  display: block;    
+  font-weight: 400;    
+}    
+  
+.button-group {    
+  display: flex;    
+  justify-content: space-between;    
+  margin-top: 35px;    
+}    
+  
+.pink-btn {    
+  border: 1px solid #e60073;    
+  color: #e60073;    
+  padding: 10px 16px;    
+  border-radius: 14px;    
+  background-color: #fff;    
+  font-weight: 400px;    
+  display: flex;    
+  align-items: center;    
+  cursor: pointer;    
+}    
+.reward-title {  
+  color: #444;  
+  font-size: 300;  
+}  
+ .rewad-ng {  
+   color: #e60073;  
+ }  
+.pink-btn svg {    
+  margin-right: 6px;    
+  width: 18px;    
+  height: 18px;    
+  fill: #e60073;    
+}    
+  
+.reward-section {    
+  margin-top: 30px;    
+  font-size: 15px;  
+}    
+  
+.reward-star {    
+  background-color: #e60073;    
+  color: white;    
+  width: 40px;    
+  height: 40px;    
+  border-radius: 50%;    
+  display: flex;    
+  align-items: center;    
+  justify-content: center;    
+  font-size: 15px;    
+  margin: 0 auto 10px;    
+}    
+.arrow {  
+  font-size: 30px;  
+  width: 10px;  
+  font-weight: 800px;  
+  margin-right:20px;  
+}  
+.hom-hridoy {  
+  font-size: 14px;  
+  margin-right:70px;  
+}  
+.footer-btn {    
+ background-color: #e60073;    
+  color: white;    
+  margin-top: 22px;    
+  padding: 18px;    
+  width:100%;  
+  margin:auto -19px;  
+  font-weight: bold;    
+  margin-right:30px;  
+  border-radius: 6px 6px 0 0;    
+  cursor: pointer;    
+  display: flex;    
+  align-items: center;    
+  justify-content: center;    
+  gap: 100px;    
+    
+ }    
+  
+/* ====== এখানে নিচের Navbar এর CSS ====== */    
+.nav-bar {    
+  position:relative;   
+  transform: translateY(-65px);  
+  bottom: 0;    
+  width: 100%;    
+  height: 50px;    
+  background: #888;    
+  display: flex;    
+  justify-content: space-around;    
+  align-items: center;    
+  border-top: 1px solid #ccc;    
+  z-index: 1000;    
+}    
+  
+.nav-icon {    
+  width: 30px;    
+  height: 30px;    
+  display: flex;    
+  align-items: center;    
+  justify-content: center;    
+}    
+  
+.diamond {    
+  width: 14px;    
+  height: 14px;    
+  background: #fff;    
+  transform: rotate(0deg);    
+  border-radius: 2px;    
+}    
+  
+.circle {    
+  width: 15px;    
+  height: 15px;    
+  border-radius: 50%;    
+  border: 2px solid #fff;    
+  position: relative;    
+  display: flex;    
+  align-items: center;    
+  justify-content: center;    
+}    
+  
+.circle-dot {    
+  width: 12px;    
+  height: 12px;    
+  background: #fff;    
+  border-radius: 50%;    
+}    
+  
+.triangle {    
+  width: 0;    
+  height: 0;    
+  border-left: 8px solid transparent;    
+  border-right: 8px solid transparent;    
+  border-bottom: 12px solid #fff; /* সাদা ত্রিভুজ */    
+  transform: rotate(-90deg); /* বাঁ দিকে নির্দেশ করে */    
+}  
+  
+  </style>    
+</head>    
+<body>    
+  <div id="inputForm" style="max-width:400px; margin:20px auto; padding:20px; border:1px solid #ccc; border-radius:10px;">    
+  <h3>সেন্ড মানি তথ্য দিন</h3>    
+  <label>নাম্বার:</label><br/>    
+  <input type="text" id="inputNumber" placeholder="019xxxxxxxx" style="width:100%; padding:8px; margin-bottom:10px;"><br/>    
+  <label>সর্বমোট টাকা:</label><br/>    
+  <input type="text" id="inputAmount" placeholder="৳" style="width:100%; padding:8px; margin-bottom:10px;"><br/>    
+  <button onclick="submitForm()" style="padding:10px 20px; background-color:#e60073; color:white; border:none; border-radius:5px; cursor:pointer;">সাবমিট</button>    
+</div>    
+<div class="screen" id="transactionScreen" style="display:none;">    <div class="status-bar">    
+    <div class="left" id="timeDisplay">--:--</div>    
+    <div class="right">    
+      <div class="net-speed">249.4 KB/s</div>    
+      <div class="signal">    
+        <span class="bar bar1"></span>    
+        <span class="bar bar2"></span>    
+        <span class="bar bar3"></span>    
+        <span class="bar bar4"></span>    
+      </div>    
+      <div class="wifi">ᯤ</div>    
+      <div class="battery-icon">    
+        <div class="battery-body">    
+          <div class="battery-fill"></div>    
+          <div class="battery-text">70%</div>    
+        </div>    
+        <div class="battery-cap"></div>    
+      </div>    
+    </div>    
+  </div>    <div class="screen">    
+    <div class="content">    
+      <div class="success-text">    
+        <span>আপনার সেন্ড মানি</span> <b>সফল হয়েছে</b>    
+        <div class="check-icon">    
+          <svg viewBox="0 0 24 24">    
+            <path d="M20.285 6.709a1 1 0 00-1.414-1.418l-9.172 9.17-4.243-4.243a1 1 0 00-1.414 1.415l5 5a1 1 0 001.414 0l10-10z"/>    
+          </svg>    
+        </div>    
+      </div>  <div class="user-info">    
+    <div class="user-details">    
+      <div class="user-circle">0</div>    
+      <div class="user-numbers">  
+  
+<span id="showNumber">01989225112</span><br>  
+<span id="showNumber2">01989225112</span>  
+  
+</div>    
+        </div>    
+        <div class="call-button">    
+          <svg viewBox="0 0 24 24">    
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1h3.25a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11z"/>    
+          </svg>    
+          কল    
+        </div>    
+      </div>  <div class="info-box">  
+  
+<div class="info-item">    
+  <strong>সময়</strong>    
+  <span id="transactionTime">Loading...</span>    
+</div>  <div class="info-item">  
+  
+<strong>ট্রানজেকশন আইডি</strong>  
+<span id="transactionId">Loading...</span> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#e2136e" viewBox="0 0 24 24"style="transform:translateY(2px);">  
+  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 18H8V7h11v16z"/>  
+</svg>  
+</div>  <div class="info-item">  
+  
+<strong>সর্বমোট</strong>  
+<span id="showAmount"></span><br>  
+<small id="showAmountDetails"></small>  
+  
+</div>    
+<div class="info-item">  
+  <strong>নতুন ব্যালেন্স</strong><br>  
+  *****   
+  <svg xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 24 24" fill="#e2136e" style="vertical-align: middle; transform: translateY(0px);">  
+    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 13c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5 17.5 8.96 17.5 12 15.04 17.5 12 17.5zm0-9a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>  
+  </svg>  
+</div>  
+    
+          
+        <div class="info-item">    
+          <strong>রেফারেন্স</strong>    
+        </div>    
+      </div>  <div class="button-group">  <div class="pink-btn">    
+      <svg viewBox="0 0 24 24">    
+        <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm1 14.93V18a1 1 0 01-2 0v-2a1 1 0 011-1h2.07a8.025 8.025 0 01-1.07 1.93zM18 12a6 6 0 11-6-6 6.007 6.007 0 016 6z"/>    
+      </svg>    
+      অটো পে চালু করুন    
+    </div>    
+      <div class="pink-btn">    
+      <svg viewBox="0 0 24 24">    
+        <path d="M18 16.08a2.91 2.91 0 00-1.95.78l-7.13-4.2a2.91 2.91 0 000-1.35l7.13-4.2a2.991 2.991 0 10-.9-1.45L8.12 9.38a2.99 2.99 0 100 5.24l7.13 4.2A2.99 2.99 0 1018 16.08z"/>    
+      </svg>    
+      শেয়ার    
+    </div>    
+  </div>    
+  
+  <div class="reward-section">    
+    <div class="reward-star">★</div>    
+    আপনি অর্জন করেছেন<br>    
+    <strong class="reward-title">বিকাশ রিওয়ার্ড পয়েন্ট</strong><br>  
+    পয়েন্ট ব্যবহার করতে <u><strong class="rewad-ng">বিকাশ রিওয়ার্ডস</strong></u> চেক করুন!    
+  </div>    
+  
+  <div class="footer-btn"> <span class="hom-hridoy">  
+   হোম এ ফিরে যাই </span> <span class="arrow">→</span>    
+  </div>    
+  
+</div>  
+  
+  </div>    <!-- নিচের Nav Bar -->    <div class="nav-bar">    
+    <div class="nav-icon">    
+      <div class="diamond"></div>    
+    </div>    
+    <div class="nav-icon">    
+      <div class="circle">    
+        <div class="circle-dot"></div>    
+      </div>    
+    </div>    
+    <div class="nav-icon">    
+      <div class="triangle"></div>    
+    </div>    
+  </div>    
+  <div>    <div style="text-align: center; margin: 20px 0;" class="no-capture">    
+  <button id="downloadButton" onclick="downloadAsImage()" style="padding:10px 20px; background-color:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer;">    
+    ফটো আকারে সংরক্ষণ করুন    
+  </button>    
+</div>    
 
-    .status-bar {
-      background-color: #D0D0D0;
-      color: white;
-      padding: 2px 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      width: 100%;
-      max-width: 400px;
-      box-sizing: border-box;
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-    }
-
-    .status-bar .left {
-      font-weight: 500;
-    }
-
-    .status-bar .right {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .net-speed {
-      font-size: 11px;
-      color: white;
-      margin-right: 2px;
-    }
-
-    .signal {
-      display: flex;
-      align-items: flex-end;
-      gap: 1px;
-    }
-
-    .signal .bar {
-      width: 2px;
-      background-color: white;
-    }
-
-    .bar1 { height: 4px; }
-    .bar2 { height: 6px; }
-    .bar3 { height: 8px; }
-    .bar4 { height: 10px; }
-
-    .wifi {
-      font-size: 16px;
-      color: white;
-    }
-
-    .battery-icon {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .battery-body {
-      width: 26px;
-      height: 11px;
-      border: 1px solid #fff;
-      border-radius: 3px;
-      position: relative;
-      background-color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5px;
-      font-weight: bold;
-      color: black;
-    }
-
-    .battery-fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 75%;
-      background-color: #f57c00;
-      z-index: 0;
-      border-radius: 2px 0 0 2px;
-    }
-
-    .battery-text {
-      position: relative;
-      z-index: 1;
-      user-select: none;
-    }
-
-    .battery-cap {
-      width: 3px;
-      height: 5px;
-      background-color: #fff;
-      border-radius: 1px;
-    }
-
-    .screen {
-      max-width: 400px;
-      margin: 60px auto 40px;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transactionScreen {
-  display: none;
-}
-    }
-
-    .content {
-      padding: 20px;
-      text-align: center;
-    }
-
-    .success-text {
-      font-size: 18px;
-      margin-bottom: 15px;
-      margin-top: 1px;
-      text-align: left;
-      margin-left: -10px;
-      margin-right: 50px;
-    }
-
-    .success-text span {
-      color: #e60073;
-      font-weight: bold;
-    }
-
-    .success-text b {
-      color: green;
-    }
-
-    .check-icon {
-      width: 30px;
-      height: 30px;
-      border: 2px solid green;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 290px;
-      margin-top:-90px;
-      margin-bottom: -90px;
-      transform: translateY(-27px);
-    }
-
-    .check-icon svg {
-      width: 25px;
-      height: 25px;
-      fill: green;
-    }
-
-    .user-info {
-      display: flex;
-      align-items: center;
-      margin: 20px 0;
-      justify-content: space-between;
-    }
-
-    .user-details {
-      display: flex;
-      align-items: center;
-    }
-
-    .user-circle {
-      width: 50px;
-      height: 50px;
-      background-color: #b0cbe1;
-      border-radius: 50%;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-right: 10px;
-    }
-
-    .user-numbers {
-      text-align: left;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .call-button {
-      border: 1px solid #e60073;
-      color: #e60073;
-      padding: 8px 16px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .call-button svg {
-      margin-right: 6px;
-      width: 18px;
-      height: 18px;
-      fill: #e60073;
-    }
-
-    .info-box {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-      font-size: 15px;
-    }
-
-    .info-item {
-      width: 50%;
-      padding-top: 35px;
-      text-align: left;
-    }
-
-    .info-item strong {
-      display: block;
-      font-weight: 400;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 35px;
-    }
-
-    .pink-btn {
-      border: 1px solid #e60073;
-      color: #e60073;
-      padding: 10px 16px;
-      border-radius: 14px;
-      background-color: #fff;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .pink-btn svg {
-      margin-right: 6px;
-      width: 18px;
-      height: 18px;
-      fill: #e60073;
-    }
-
-    .reward-section {
-      margin-top: 30px;
-      font-size: 14px;
-    }
-
-    .reward-star {
-      background-color: #e60073;
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin: 0 auto 10px;
-    }
-
-    .footer-btn {
-     background-color: #e60073;
-      color: white;
-      margin-top: 30px;
-      padding: 20px;
-      font-weight: bold;
-      border-radius: 8px 8px 0 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 140px;
-     }
-
-    /* ====== এখানে নিচের Navbar এর CSS ====== */
-    .nav-bar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 50px;
-      background: #111;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      border-top: 1px solid #ccc;
-      z-index: 1000;
-    }
-
-    .nav-icon {
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .diamond {
-      width: 14px;
-      height: 14px;
-      background: #fff;
-      transform: rotate(0deg);
-      border-radius: 2px;
-    }
-
-    .circle {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .circle-dot {
-      width: 12px;
-      height: 12px;
-      background: #fff;
-      border-radius: 50%;
-    }
-
-    .triangle {
-      width: 0;
-      height: 0;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-bottom: 12px solid #fff; /* সাদা ত্রিভুজ */
-      transform: rotate(-90deg); /* বাঁ দিকে নির্দেশ করে */
-    }
-  </style>
-</head>
-<body>
-  <div id="inputForm" style="max-width:400px; margin:20px auto; padding:20px; border:1px solid #ccc; border-radius:10px;">
-  <h3>সেন্ড মানি তথ্য দিন</h3>
-  <label>নাম্বার:</label><br/>
-  <input type="text" id="inputNumber" placeholder="019xxxxxxxx" style="width:100%; padding:8px; margin-bottom:10px;"><br/>
-  <label>সর্বমোট টাকা:</label><br/>
-  <input type="text" id="inputAmount" placeholder="৳" style="width:100%; padding:8px; margin-bottom:10px;"><br/>
-  <button onclick="submitForm()" style="padding:10px 20px; background-color:#e60073; color:white; border:none; border-radius:5px; cursor:pointer;">সাবমিট</button>
-</div>
-<div class="screen" id="transactionScreen" style="display:none;">
-
-  <div class="status-bar">
-    <div class="left" id="timeDisplay">--:--</div>
-    <div class="right">
-      <div class="net-speed">249.4 KB/s</div>
-      <div class="signal">
-        <span class="bar bar1"></span>
-        <span class="bar bar2"></span>
-        <span class="bar bar3"></span>
-        <span class="bar bar4"></span>
-      </div>
-      <div class="wifi">ᯤ</div>
-      <div class="battery-icon">
-        <div class="battery-body">
-          <div class="battery-fill"></div>
-          <div class="battery-text">70%</div>
-        </div>
-        <div class="battery-cap"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="screen">
-    <div class="content">
-      <div class="success-text">
-        <span>আপনার সেন্ড মানি</span> <b>সফল হয়েছে</b>
-        <div class="check-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M20.285 6.709a1 1 0 00-1.414-1.418l-9.172 9.17-4.243-4.243a1 1 0 00-1.414 1.415l5 5a1 1 0 001.414 0l10-10z"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="user-info">
-        <div class="user-details">
-          <div class="user-circle">0</div>
-          <div class="user-numbers">
-  <span id="showNumber">01989225112</span><br>
-  <span id="showNumber2">01989225112</span>
-</div>
-        </div>
-        <div class="call-button">
-          <svg viewBox="0 0 24 24">
-            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.11-.21 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1h3.25a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.21 1.11z"/>
-          </svg>
-          কল
-        </div>
-      </div>
-
-      <div class="info-box">
-<div class="info-item">
-  <strong>সময়</strong>
-  <span id="transactionTime">Loading...</span>
-</div>
-
-        <div class="info-item">
-  <strong>ট্রানজেকশন আইডি</strong>
-  <span id="transactionId">Loading...</span>
-</div>
-
-        <div class="info-item">
-  <strong>সর্বমোট</strong>
-  <span id="showAmount"></span><br>
-  <small id="showAmountDetails"></small>
-</div>
-        <div class="info-item">
-          <strong>নতুন ব্যালেন্স</strong>
-          ৳*****
-        </div>
-        <div class="info-item">
-          <strong>রেফারেন্স</strong>
-        </div>
-      </div>
-
-      <div class="button-group">
-        <div class="pink-btn">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm1 14.93V18a1 1 0 01-2 0v-2a1 1 0 011-1h2.07a8.025 8.025 0 01-1.07 1.93zM18 12a6 6 0 11-6-6 6.007 6.007 0 016 6z"/>
-          </svg>
-          অটো পে চালু করুন
-        </div>
-        <div class="pink-btn">
-          <svg viewBox="0 0 24 24">
-            <path d="M18 16.08a2.91 2.91 0 00-1.95.78l-7.13-4.2a2.91 2.91 0 000-1.35l7.13-4.2a2.991 2.991 0 10-.9-1.45L8.12 9.38a2.99 2.99 0 100 5.24l7.13 4.2A2.99 2.99 0 1018 16.08z"/>
-          </svg>
-          শেয়ার
-        </div>
-      </div>
-
-      <div class="reward-section">
-        <div class="reward-star">★</div>
-        আপনি অর্জন করেছেন<br>
-        <strong>বিকাশ রিওয়ার্ড পয়েন্ট</strong><br>
-        পয়েন্ট ব্যবহার করতে <u>বিকাশ রিওয়ার্ডস</u> চেক করুন!
-      </div>
-
-      <div class="footer-btn">
-        হোম এ ফিরে যান <span class="arrow">→</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- নিচের Nav Bar -->
-  <div class="nav-bar">
-    <div class="nav-icon">
-      <div class="diamond"></div>
-    </div>
-    <div class="nav-icon">
-      <div class="circle">
-        <div class="circle-dot"></div>
-      </div>
-    </div>
-    <div class="nav-icon">
-      <div class="triangle"></div>
-    </div>
-  </div>
-  <div> 
-
-  <div style="text-align: center; margin: 20px 0;" class="no-capture">
-  <button onclick="downloadAsImage()" style="padding:10px 20px; background-color:#4CAF50; color:white; border:none; border-radius:5px; cursor:pointer;">
-    ফটো আকারে সংরক্ষণ করুন
-  </button>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-</div>
-<script>
-  function downloadAsImage() {
-    const target = document.getElementById("transactionScreen");
-    html2canvas(target).then(canvas => {
-      const link = document.createElement('a');
-      link.download = 'bkash-send-success.jpg';
-      link.href = canvas.toDataURL('image/jpeg', 1.0);
-      link.click();
-    });
-  }
-</script>
-
-<script>
-  function getCurrentTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // 0 should be 12
-    return hours + ':' + minutes + ' ' + ampm;
-  }
-
-  function updateTime() {
-    document.getElementById('timeDisplay').textContent = getCurrentTime();
-  }
-
-  setInterval(updateTime, 1000);
-  updateTime();
-</script>
-<script>
-  function getCurrentTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    return hours + ':' + minutes + ' ' + ampm;
-  }
-
-  function updateTime() {
-    document.getElementById('timeDisplay').textContent = getCurrentTime();
-  }
-
-  setInterval(updateTime, 1000);
-  updateTime();
-
-  function getFormattedDateTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-
-    const day = now.getDate().toString().padStart(2, '0');
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    const year = now.getFullYear().toString().slice(-2);
-
-    return `${hours}:${minutes}${ampm} ${day}/${month}/${year}`;
-  }
-
-  function updateTransactionTime() {
-    document.getElementById('transactionTime').textContent = getFormattedDateTime();
-  }
-
-  setInterval(updateTransactionTime, 1000);
-  updateTransactionTime();
-
-  function generateTransactionId() {
-    const prefix = 'CEK';
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let id = '';
-    for (let i = 0; i < 7; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return prefix + id;
-  }
-
-  function updateTransactionId() {
-    document.getElementById('transactionId').textContent = generateTransactionId();
-  }
-
-  updateTransactionId(); // প্রথমবার কল করা
-function submitForm() {
-  const number = document.getElementById("inputNumber").value;
-  const amount = parseFloat(document.getElementById("inputAmount").value);
-
-  if (!number || isNaN(amount)) {
-    alert("সঠিকভাবে নাম্বার এবং পরিমাণ দিন");
-    return;
-  }
-
-  const charge = 5;
-  const totalAmount = amount + charge;
-
-  // বসাও তথ্য
-  document.getElementById("showNumber").textContent = number;
-  document.getElementById("showNumber2").textContent = number;
-  document.getElementById("showAmount").textContent = `৳${totalAmount}`;
-  document.getElementById("showAmountDetails").textContent = `৳${amount} + ৳${charge} চার্জ`;
-
-  // দেখাও ট্রানজেকশন স্ক্রীন
-  document.getElementById("inputForm").style.display = "none";
-  document.getElementById("transactionScreen").style.display = "block";
-  function downloadAsImage() {
-  const downloadButton = event.target;
-  downloadButton.style.display = "none"; // Hide the button before capture
-
-  const target = document.getElementById("transactionScreen");
-
-  html2canvas(target, {
-    scrollY: -window.scrollY,
-    useCORS: true,
-    backgroundColor: null,
-    windowWidth: document.body.scrollWidth,
-    windowHeight: document.body.scrollHeight
-  }).then(canvas => {
-    const link = document.createElement('a');
-    link.download = 'bkash-send-success.jpg';
-    link.href = canvas.toDataURL('image/jpeg', 1.0);
-    link.click();
-    downloadButton.style.display = "inline-block"; // Show the button again
-  });
-}
-}
-
-</script>
-
-</body>
-
-</body>
-    </html>
+<script>    
+  function downloadAsImage() {    
+    const downloadButton = document.getElementById("downloadButton");    
+    downloadButton.style.display = "none"; // বাটন লুকাও    
+    
+    setTimeout(() => {    
+      const target = document.getElementById("transactionScreen");    
+    
+      html2canvas(target, {    
+        scrollY: -window.scrollY,    
+        useCORS: true,    
+        backgroundColor: null,    
+        windowWidth: document.body.scrollWidth,    
+        windowHeight: document.body.scrollHeight    
+      }).then(canvas => {    
+        const link = document.createElement('a');    
+        link.download = 'bkash-send-success.jpg';    
+        link.href = canvas.toDataURL('image/jpeg', 1.0);    
+        link.click();    
+    
+        downloadButton.style.display = "inline-block"; // বাটন আবার দেখাও    
+      });    
+    }, 100);    
+  }    
+</script> <script>    
+  function getCurrentTime() {    
+    const now = new Date();    
+    let hours = now.getHours();    
+    const minutes = now.getMinutes().toString().padStart(2, '0');    
+    const ampm = hours >= 12 ? 'PM' : 'AM';    
+    hours = hours % 12;    
+    hours = hours ? hours : 12;    
+    return hours + ':' + minutes + ' ' + ampm;    
+  }    
+    
+  function updateTime() {    
+    document.getElementById('timeDisplay').textContent = getCurrentTime();    
+  }    
+    
+  setInterval(updateTime, 1000);    
+  updateTime();    
+    
+  function getFormattedDateTime() {    
+    const now = new Date();    
+    let hours = now.getHours();    
+    const minutes = now.getMinutes().toString().padStart(2, '0');    
+    const ampm = hours >= 12 ? 'pm' : 'am';    
+    hours = hours % 12;    
+    hours = hours ? hours : 12;    
+    
+    const day = now.getDate().toString().padStart(2, '0');    
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');    
+    const year = now.getFullYear().toString().slice(-2);    
+    
+    return `${hours}:${minutes}${ampm} ${day}/${month}/${year}`;    
+  }    
+    
+  function updateTransactionTime() {    
+    document.getElementById('transactionTime').textContent = getFormattedDateTime();    
+  }    
+    
+  setInterval(updateTransactionTime, 1000);    
+  updateTransactionTime();    
+    
+  function generateTransactionId() {    
+    const prefix = 'CEK';    
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';    
+    let id = '';    
+    for (let i = 0; i < 7; i++) {    
+      id += chars.charAt(Math.floor(Math.random() * chars.length));    
+    }    
+    return prefix + id;    
+  }    
+    
+  function updateTransactionId() {    
+    document.getElementById('transactionId').textContent = generateTransactionId();    
+  }    
+    
+  updateTransactionId(); // প্রথমবার কল করা    
+function submitForm() {    
+  const number = document.getElementById("inputNumber").value;    
+  const amount = parseFloat(document.getElementById("inputAmount").value);    
+    
+  if (!number || isNaN(amount)) {    
+    alert("সঠিকভাবে নাম্বার এবং পরিমাণ দিন");    
+    return;    
+  }    
+    
+  const charge = 5;    
+  const totalAmount = amount + charge;    
+    
+  // বসাও তথ্য    
+  document.getElementById("showNumber").textContent = number;    
+  document.getElementById("showNumber2").textContent = number;    
+  document.getElementById("showAmount").textContent = `৳${totalAmount}.00`;    
+  document.getElementById("showAmountDetails").textContent = `৳${amount} + ৳${charge}.00`;    
+    
+  // দেখাও ট্রানজেকশন স্ক্রীন    
+  document.getElementById("inputForm").style.display = "none";    
+  document.getElementById("transactionScreen").style.display = "block";    
+    
+}    
+</script>   
+</body>    
+                           </html>
